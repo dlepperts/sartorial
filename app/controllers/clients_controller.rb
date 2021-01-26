@@ -13,37 +13,31 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @client.measurements.build(waist: "Waist", chest_bust: "Chest/Bust", hips: "Hips", rise: "Rise", neck: "Neck")
   end
 
   # GET /clients/1/edit
   def edit
   end
 
-  # POST /clients or /clients.json
+  # POST /clients 
   def create
     @client = Client.new(client_params)
-
-    respond_to do |format|
-      if @client.save
-        format.html { redirect_to @client, notice: "Client was successfully created." }
-        format.json { render :show, status: :created, location: @client }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+    if @client.save
+      redirect_to client_path(@client)
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /clients/1 or /clients/1.json
   def update
-    respond_to do |format|
-      if @client.update(client_params)
-        format.html { redirect_to @client, notice: "Client was successfully updated." }
-        format.json { render :show, status: :ok, location: @client }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
-      end
+    @client = Client.find(params[:id])
+    if @client.update(client_params)
+      redirect_to client_path(@client)
+    else
+      @client.reload
+      render :edit
     end
   end
 
@@ -64,6 +58,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.fetch(:client, {})
+      params.require(:client).permit(:name, :sex, :street, :city, :state, :zip_code, measurements_attributes: [ :waist, :chest_bust, :hips, :rise, :neck ])
     end
 end
