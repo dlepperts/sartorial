@@ -4,8 +4,10 @@ class CreateClient < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :sex
 
-      t.integer :measurement_id
-      t.integer :address_id
+      t.string :street
+      t.string :city
+      t.string :state
+      t.string :zip_code
 
       t.timestamps
     end

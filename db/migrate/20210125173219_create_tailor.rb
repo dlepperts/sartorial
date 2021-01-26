@@ -3,7 +3,11 @@ class CreateTailor < ActiveRecord::Migration[6.1]
     create_table :tailors do |t|
       t.string :name
       t.text :bio
-      t.integer :address_id
+      
+      t.string :street
+      t.string :city
+      t.string :state
+      t.string :zip_code
 
       t.timestamps
     end

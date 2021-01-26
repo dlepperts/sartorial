@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :item_types
   resources :measurements
   resources :addresses

@@ -3,7 +3,10 @@ class CreateAlteration < ActiveRecord::Migration[6.1]
     create_table :alterations do |t|
       t.integer :item_type_id
       t.text :comments
-      t.datetime :date
+      t.string :date
+
+      t.integer :client_id
+      t.integer :tailor_id
 
       t.timestamps
     end

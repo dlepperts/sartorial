@@ -12,19 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_01_25_175649) do
 
-  create_table "addresses", force: :cascade do |t|
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip_code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "alterations", force: :cascade do |t|
     t.integer "item_type_id"
     t.text "comments"
-    t.datetime "date"
+    t.string "date"
+    t.integer "client_id"
+    t.integer "tailor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,8 +25,10 @@ ActiveRecord::Schema.define(version: 2021_01_25_175649) do
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "sex"
-    t.integer "measurement_id"
-    t.integer "address_id"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -50,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_175649) do
     t.float "hips"
     t.float "rise"
     t.float "neck"
+    t.integer "client_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -57,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_01_25_175649) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "review"
+    t.integer "client_id"
+    t.integer "tailor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -64,7 +62,10 @@ ActiveRecord::Schema.define(version: 2021_01_25_175649) do
   create_table "tailors", force: :cascade do |t|
     t.string "name"
     t.text "bio"
-    t.integer "address_id"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

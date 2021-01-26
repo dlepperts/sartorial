@@ -4,6 +4,9 @@ class CreateReview < ActiveRecord::Migration[6.1]
       t.integer :rating
       t.text :review
 
+      t.integer :client_id
+      t.integer :tailor_id
+
       t.timestamps
     end
   end
