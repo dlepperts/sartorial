@@ -1,3 +1,3 @@
 class ItemType < ApplicationRecord
-    belongs_to :alteration
+    # belongs_to :alteration
 end

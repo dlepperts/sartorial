@@ -1,17 +1,28 @@
-<%= form_with(model: tailor) do |form| %>
-  <% if tailor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tailor.errors.count, "error") %> prohibited this tailor from being saved:</h2>
 
-      <ul>
-        <% tailor.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @tailor.errors.any? %>
+<h2>Uh Oh! There was a mistake in the form:</h2>
+  <ul>
+    <% tailor.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for(@tailor) do |f| %>
+  <h3>Personal Information</h3>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :bio %>
+  <%= f.text_field :bio %><br>
+  <h3>Address</h3>
+  <%= f.label :street %>
+  <%= f.text_field :street %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip_code %>  <br><br>
+  <%= f.submit %>
+
 <% end %>
