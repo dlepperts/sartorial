@@ -1,6 +1,49 @@
 <h1>Editing Client</h1>
 
-<%= render 'form', client: @client %>
+<% if @client.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+        <% @client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%=form_for @client do |f|%>
+    <h4> Personal Details: </h4>
+    <%=f.label "Name" %>
+    <%=f.text_field :name %>
+    <%=f.label "Sex" %>
+    <%=f.text_field :sex %>
+    <h4> Address: </h4>
+    <%= f.label "Street" %>
+    <%= f.text_field :street %>
+    <%= f.label "City" %>
+    <%= f.text_field :city %>
+    <%= f.label "State" %>
+    <%= f.text_field :state %>
+    <%= f.label "Zip Code" %>
+    <%= f.text_field :zip_code %>
+    <h4> Measurements: </h4>
+    <%= f.fields_for :measurements do |measurement| %>
+      <%= measurement.label "Waist" %>
+      <%= measurement.text_field :waist %><br>
+      <%= measurement.label "Chest/Bust" %>
+      <%= measurement.text_field :chest_bust %><br>
+      <%= measurement.label "Hips" %>
+      <%= measurement.text_field :hips %><br>
+      <%= measurement.label "Rise" %>
+      <%= measurement.text_field :rise %><br>
+      <%= measurement.label "Neck" %>
+      <%= measurement.text_field :neck %><br>
+    <% end %>
+    <%= f.submit %>
+
+<% end %>
 
 <%= link_to 'Show', @client %> |
 <%= link_to 'Back', clients_path %>
+<%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' } %>

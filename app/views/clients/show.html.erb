@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<h1> <%= @client.name %> </h1>
+<h4> Personal Details: </h4>
+<p> Name: <%= @client.name %> </p>
+<p> Sex: <%= @client.sex %> </p>
+<h4> Address: </h4>
+<p> Street: <%=@client.street %> </p>
+<p> City: <%=@client.city %> </p>
+<p> State: <%=@client.state %> </p>
+<p> Zip Code: <%=@client.zip_code %> </p>
+<h4> Measurements: </h4>
+<%=@client.measurement.each do |m|%>
+    <p> Waist: <%=m.waist %> </p>
+    <p> Chest/Bust: <%=m.chest_bust %> </p>
+    <p> Hips: <%=m.hips %> </p>
+    <p> Rise: <%=m.rise %> </p>
+    <p> Neck: <%=m.neck %> </p>
+<% end %>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
