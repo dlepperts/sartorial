@@ -8,6 +8,7 @@ class AlterationsController < ApplicationController
 
   # GET /alterations/1 or /alterations/1.json
   def show
+    @alteration = Alteration.find(params[:id])
   end
 
   # GET /alterations/new
@@ -21,6 +22,7 @@ class AlterationsController < ApplicationController
 
   # POST /alterations or /alterations.json
   def create
+    #items = ["blouse", "pants", "skirts"]
     @alteration = Alteration.new(alteration_params)
 
     respond_to do |format|
@@ -64,6 +66,6 @@ class AlterationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def alteration_params
-      params.fetch(:alteration, {})
+      params.require(:alteration).permit(:item_type_id, :client_id, :tailor_id)
     end
 end
