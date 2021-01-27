@@ -1,5 +1,7 @@
 <h1><%= @tailor.name %></h1>
 <h4>Average Rating: <%= @tailor.display_ratings %></h4>
+<h2>Bio:</h2>
+<p><%= @tailor.bio %></p>
 <p><%= link_to "Reviews", tailor_reviews_path(@tailor)%></p>
 <p><%= link_to "Orders", tailor_alterations_path(@tailor) %></p>
 
