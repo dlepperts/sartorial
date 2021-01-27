@@ -12,11 +12,12 @@
 <%= @alteration.tailor.city %>, <%= @alteration.tailor.state %> <%= @alteration.tailor.zip_code %><br>
 
 <h4>Your Tailor Submission Info:</h4><p>
-Waist: <%= @alteration.client.measurement.waist %><br>
-Chest/Bust: <%= @alteration.client.measurement.chest_bust %><br>
-Hips: <%= @alteration.client.measurement.hips %><br>
-Rise: <%= @alteration.client.measurement.rise %><br>
-Neck: <%= @alteration.client.measurement.neck %><p>
+
+Waist: <%= @alteration.client.measurements[0].waist %><br>
+Chest/Bust: <%= @alteration.client.measurements[0].chest_bust %><br>
+Hips: <%= @alteration.client.measurements[0].hips %><br>
+Rise: <%= @alteration.client.measurements[0].rise %><br>
+Neck: <%= @alteration.client.measurements[0].neck %><p>
 
 
 <%= link_to 'Edit', edit_alteration_path(@alteration) %> 
