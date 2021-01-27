@@ -2,6 +2,13 @@ require 'faker'
 # if error: uninitialized constant Faker::[some_class]
 # change line in gemfile to: gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+Client.destroy_all
+Tailor.destroy_all
+Review.destroy_all
+ItemType.destroy_all
+Measurement.destroy_all
+Alteration.destroy_all
+
 
 #client
 5.times do 

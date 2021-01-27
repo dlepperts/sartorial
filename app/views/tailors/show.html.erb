@@ -1,5 +1,6 @@
 <h1><%= @tailor.name %></h1>
-<h4>Average Rating: <%= @tailor.average_ratings %></h4>
+<h4>Average Rating: <%= @tailor.display_ratings %></h4>
+<p><%= link_to "Reviews", tailor_reviews_path(@tailor)%></p>
 
 
 <%= link_to 'Back', tailors_path %>
