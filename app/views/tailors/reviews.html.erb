@@ -1,0 +1,8 @@
+<h1>Reviews for <%= @tailor.name %></h1>
+<% @reviews.each do |review| %>
+    
+    <p><%= review.rating %> Stars</p>
+    <p><%= review.review %></p>
+    <p>Reviewer: <%= review.client.name %></p>
+    -----------------------------
+<% end %>

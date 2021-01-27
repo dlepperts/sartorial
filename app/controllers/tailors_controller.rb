@@ -16,6 +16,14 @@ class TailorsController < ApplicationController
   def edit
   end
 
+  def reviews
+    @tailor = Tailor.find(params[:id])
+    @reviews = Review.all.select do |review|
+      review.tailor_id == @tailor.id
+    end
+    
+  end
+
   def create
     byebug
     @tailor = Tailor.new(tailor_params)
@@ -27,7 +35,7 @@ class TailorsController < ApplicationController
   end
 
   def update
-
+  
   end
 
   def destroy

@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :item_types
   resources :measurements
-  resources :addresses
   resources :reviews
   resources :alterations
   resources :tailors
+  get ':tailors/:id/reviews', to: 'tailors#reviews', as: 'tailor_reviews'
   resources :clients
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
 end

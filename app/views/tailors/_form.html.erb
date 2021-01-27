@@ -2,7 +2,7 @@
 <% if @tailor.errors.any? %>
 <h2>Uh Oh! There was a mistake in the form:</h2>
   <ul>
-    <% tailor.errors.each do |error| %>
+    <% @tailor.errors.each do |error| %>
       <li><%= error.full_message %></li>
     <% end %>
   </ul>

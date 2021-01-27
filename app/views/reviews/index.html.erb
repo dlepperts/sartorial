@@ -1,25 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Reviews</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reviews.each do |review| %>
-      <tr>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+  <% @reviews.reverse.each do |review| %>
+    <div>
+    
+    <h3>Tailor: <%= link_to review.tailor.name, tailor_path(review.tailor) %></h3>
+    <h4>Location: <%= review.tailor.city %>, <%= review.tailor.state %></h4>
+    <p>Reviewer: <%= review.client.name  %></p>
+    <p>Rating: <%= review.rating  %> / 5</p>
+    <p>Review: <%= review.review  %></p>
+    --------------------------------
+    </div>
+  <% end %>
+  
 
 <%= link_to 'New Review', new_review_path %>

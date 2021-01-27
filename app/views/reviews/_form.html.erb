@@ -1,17 +1,22 @@
-<%= form_with(model: review) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<% if @review.errors.any? %>
+<h2>Uh Oh! There was a mistake in the form:</h2>
+  <ul>
+    <% @review.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-      <ul>
-        <% review.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<%= form_for(@review) do |f| %>
+  <%= f.label :client %>
+  <%= f.collection_select(:client_id, Client.all, :id, :name) %>
+  <%= f.label :tailor %>
+  <%= f.collection_select(:tailor_id, Tailor.all, :id, :name) %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <%= f.label :review %>
+  <%= f.text_area :review %>
+ <br><br>
+  <%= f.submit %>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
