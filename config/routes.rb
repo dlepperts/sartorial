@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :alterations
   resources :tailors
   get ':tailors/:id/reviews', to: 'tailors#reviews', as: 'tailor_reviews'
+  get ':tailors/:id/alterations', to: 'tailors#alterations', as: 'tailor_alterations'
   resources :clients
   
 end

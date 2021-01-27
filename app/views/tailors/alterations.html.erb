@@ -1,0 +1,5 @@
+<h1><%= @tailor.name%>'s Orders</h1>
+<% @alterations.each do |alteration| %>
+
+    <li><%= link_to alteration.client.name, alteration_path(alteration) %></li>
+<% end %>
