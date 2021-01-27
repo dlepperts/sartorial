@@ -1,6 +1,10 @@
 <h1>Tailors</h1>
       
+<<<<<<< HEAD
 <h3>Featured Tailor: <%= link_to @tailor.name, tailor_path(@tailor)%></h3ß>
+=======
+<h2>Featured Tailor: <%= link_to @tailor.name, tailor_path(@tailor)%></h2>
+>>>>>>> 9df5a5f28883e74e5d8da80dc0f6002ee7285769
     <ul>
     <% @tailors.each do |tailor| %>
         <h3><li><%= link_to tailor.name, tailor_path(tailor) %></h3>

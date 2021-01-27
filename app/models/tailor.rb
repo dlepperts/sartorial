@@ -30,7 +30,7 @@ class Tailor < ApplicationRecord
             "No Reviews Yet!"
         else
         rating = total.sum.to_f / total.count
-        "#{rating} / 5"    
+        "#{rating.round(1)} / 5"    
         end
     end
 
@@ -49,4 +49,14 @@ class Tailor < ApplicationRecord
         end
     end
 
+    def self.featured_tailor
+        Tailor.all.max_by do |tailor|
+            tailor.reviews.each do |review|
+                review.rating
+            end
+     end
+    end
 end
+
+
+
