@@ -1,6 +1,22 @@
 <p id="notice"><%= notice %></p>
+<p><h1>Tailor Confirmation</h1></p>
+
+<h4> Your Information:</h4>
+<%= @alteration.client.name %><br>
+<%= @alteration.client.street %><br>
+<%= @alteration.client.city %> , <%= @alteration.client.state %> <%= @alteration.client.zip_code %><p>
+
+<h4>Your Tailor Information:</h4>
+<%= @alteration.tailor.name %><br>
+<%= @alteration.tailor.street %><br>
+<%= @alteration.tailor.city %>, <%= @alteration.tailor.state %> <%= @alteration.tailor.zip_code %><br>
+
+<h4>Your Tailor Submission Info:</h4><p>
+Waist: <%= @alteration.client.measurement.waist %><br>
+Chest/Bust: <%= @alteration.client.measurement.chest_bust %><br>
+Hips: <%= @alteration.client.measurement.hips %><br>
+Rise: <%= @alteration.client.measurement.rise %><br>
+Neck: <%= @alteration.client.measurement.neck %><p>
 
 
-
-<%= link_to 'Edit', edit_alteration_path(@alteration) %> |
-<%= link_to 'Back', alterations_path %>
+<%= link_to 'Edit', edit_alteration_path(@alteration) %> 

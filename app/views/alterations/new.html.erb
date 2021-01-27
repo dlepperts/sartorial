@@ -2,13 +2,13 @@
 
 <%= form_for @alteration do |f| %>
     <%= f.label "Item" %>
-    <%= f.collection_select(:item_type_id, ItemType.all, :id, :name) %>
+    <%= f.collection_select(:item_type_id, ItemType.all, :id, :name) %><p>
 
     <%= f.label "Name of Client" %>
-    <%= f.collection_select(:client_id, Client.all, :id, :name)%>
+    <%= f.collection_select(:client_id, Client.all, :id, :name)%><p>
 
     <%= f.label "Name of Tailor" %>
-    <%= f.collection_select(:tailor_id, Tailor.all, :id, :name)%>
+    <%= f.collection_select(:tailor_id, Tailor.all, :id, :name)%><p>
     <%= f.submit %>
 <% end %>
 
