@@ -1,10 +1,13 @@
 <h1><%= @tailor.name %></h1>
 <h4>Average Rating: <%= @tailor.display_ratings %></h4>
-<h2>Bio:</h2>
-<p><%= @tailor.bio %></p>
+<h4>Bio:</h4>
+<p><%= @tailor.bio %></p><br>
 <p><%= link_to "Reviews", tailor_reviews_path(@tailor)%></p>
 <p><%= link_to "Orders", tailor_alterations_path(@tailor) %></p>
 
-<%= button_to "Delete Tailor", tailor_path(@tailor), method: :delete %> 
+
 <%= link_to 'Back', tailors_path %>
+<br>
+<br>
+<%= button_to "Delete Tailor", tailor_path(@tailor), method: :delete %> 
 
