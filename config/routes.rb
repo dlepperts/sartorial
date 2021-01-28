@@ -1,12 +1,37 @@
 Rails.application.routes.draw do
-  get 'home', to: 'static#home'
-  get 'about', to: 'static#about'
-  resources :measurements
-  resources :reviews
-  resources :alterations, only:[:new, :create, :update, :show, :edit]
+
+  root to: 'static#home'
+
+  #user
+  resources :users
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
+  get '/welcome', to: 'users#welcome'
+  post '/welcome', to: 'users#edit', as: 'hello'
+
+  #login
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+  #tailor
   resources :tailors
+  resources :reviews
   get ':tailors/:id/reviews', to: 'tailors#reviews', as: 'tailor_reviews'
   get ':tailors/:id/alterations', to: 'tailors#alterations', as: 'tailor_alterations'
+  resources :alterations, only:[:new, :create, :update, :show, :edit]
+
+  #client
   resources :clients
+  resources :measurements
+
+  #static
+  get 'home', to: 'static#home'
+  get 'about', to: 'static#about'
+
+
+
+ 
+  # get 'authorized', to: 'static#about'
   
 end

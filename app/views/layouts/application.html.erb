@@ -12,7 +12,12 @@
       <td><a href="/about">About</a></td>
       <td><%= link_to "Tailors", tailors_path %></td>
       <td><%= link_to "Reviews", reviews_path %></td>
-      <td>Services</td>
+      <td><%= link_to "Sign Up", signup_path %></td>
+      <td><%= button_to "Login", '/login', method: :get %></td>
+        <% if logged_in? %>
+      <td><%= button_to "Log Out", logout_path, method: 'delete' %></td>
+        <% end %>
+          
     </table>
   </head>
 
