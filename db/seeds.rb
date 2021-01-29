@@ -13,13 +13,12 @@ Alteration.destroy_all
 #client
 35.times do 
     name = Faker::Name.unique.name
-    sex = Faker::Gender.short_binary_type
     street = Faker::Address.street_name
     city = Faker::Address.city
     state = Faker::Address.state
     zip_code = Faker::Address.zip
-    client = Client.create(name: name, sex: sex, street: street, city: city, state: state, zip_code: zip_code)
-    client_id = client.id
+    user = User.create(username: name, password: "abc", name: name, street: street, city: city, state: state, zip_code: zip_code)
+    client_id = user.id
     waist = Faker::Number.within(range: 20..45)
     chest = Faker::Number.within(range: 28..45)
     hips = Faker::Number.within(range: 25..45)
@@ -36,7 +35,7 @@ end
     city = Faker::Address.city
     state = Faker::Address.state
     zip_code = Faker::Address.zip
-    Tailor.create(name: name, bio: bio, street: street, city: city, state: state, zip_code: zip_code)
+    Tailor.create(name: name)
 end
 
 #review
@@ -52,7 +51,6 @@ end
     review = Faker::Lorem.paragraph
     Review.create(client_id: client_id, tailor_id: tailor_id, rating: rating, review: review)
 end
-
 
 #clothing items
 item_1 = ItemType.create(name: "Dress")

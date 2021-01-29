@@ -1,4 +1,5 @@
 class Client < ApplicationRecord
+    has_one :user, as: :usable
     has_many :alterations
     has_many :reviews
     has_many :tailors, through: :alterations

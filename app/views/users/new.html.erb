@@ -1,0 +1,15 @@
+<h1>Signup</h1>
+
+<%= form_for(@user) do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.text_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation %><br>
+    <%= f.label :usable_type, "Tailor" %>
+    <%= f.radio_button :usable_type, "Tailor", :value => "Tailor" %>
+    <%= f.label :usable_type, "Client" %>
+    <%= f.radio_button :usable_type, "Client", :value => "Client" %><br>
+    <%= f.submit %>
+<% end %>

@@ -10,6 +10,7 @@ class AlterationsController < ApplicationController
   # GET /alterations/new
   def new
     @alteration = Alteration.new
+    @user = User.find_by(username: session[:username])
   end
 
   # GET /alterations/1/edit
