@@ -1,0 +1,5 @@
+<h1>My Orders</h1>
+
+<% @user_orders.each do |order| %>
+    <p>Ready: <%= link_to "#{order.date.strftime('%B %d, %Y')}", alteration_path(order) %></p>
+    <% end %>

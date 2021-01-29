@@ -1,23 +1,29 @@
 <p id="notice"><%= notice %></p>
-<p><h1>Tailor Confirmation</h1></p>
-
+<h1>Order Confirmation</h1>
+<%byebug%>
 <h4> Your Information:</h4>
-<%= @alteration.client.name %><br>
-<%= @alteration.client.street %><br>
-<%= @alteration.client.city %> , <%= @alteration.client.state %> <%= @alteration.client.zip_code %><p>
+<%= @alteration.client.user.name %><br>
+<%= @alteration.client.user.street %><br>
+<%= @alteration.client.user.city %> , <%= @alteration.client.user.state %> <%= @alteration.client.user.zip_code %><p>
 
 <h4>Your Tailor Information:</h4>
-<%= @alteration.tailor.name %><br>
-<%= @alteration.tailor.street %><br>
-<%= @alteration.tailor.city %>, <%= @alteration.tailor.state %> <%= @alteration.tailor.zip_code %><br>
+<%= @alteration.tailor.user.name %><br>
+<%= @alteration.tailor.user.street %><br>
+<%= @alteration.tailor.user.city %>, <%= @alteration.tailor.user.state %> <%= @alteration.tailor.user.zip_code %><br>
 
 <h4>Your Tailor Submission Info:</h4><p>
 
-Waist: <%= @alteration.client.measurements[0].waist %><br>
-Chest/Bust: <%= @alteration.client.measurements[0].chest_bust %><br>
-Hips: <%= @alteration.client.measurements[0].hips %><br>
-Rise: <%= @alteration.client.measurements[0].rise %><br>
-Neck: <%= @alteration.client.measurements[0].neck %><p>
+Waist: <%= @alteration.client.measurement.waist %><br>
+Chest/Bust: <%= @alteration.client.measurement.chest_bust %><br>
+Hips: <%= @alteration.client.measurement.hips %><br>
+Rise: <%= @alteration.client.measurement.rise %><br>
+Neck: <%= @alteration.client.measurement.neck %><p>
 
+<h4>Will Be Ready By:</h4>
+
+<%= @alteration.date.strftime('%B %d, %Y')%>
+
+<h3>Thank you for using Tailor Mailer!</h3>
 
 <%= link_to 'Edit', edit_alteration_path(@alteration) %> 
+<%= link_to 'My Orders', user_path(@user) %> 

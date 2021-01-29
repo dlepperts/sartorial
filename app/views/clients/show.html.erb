@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<%byebug%>
 <h1> <%= @client.name %> </h1>
 <h4> Personal Details: </h4>
 <p> Name: <%= @client.name %> </p>
 <h4> Address: </h4>
+<%byebug%>
 <p> Street: <%=@client.street %> </p>
 <p> City: <%=@client.city %> </p>
 <p> State: <%=@client.state %> </p>
@@ -11,12 +12,12 @@
 <h4> Measurements: </h4>
 
 
-    <p> Waist: <%=@client.client.measurement.waist %> </p>
-    <p> Chest/Bust: <%=@client.client.measurement.chest_bust %> </p>
-    <p> Hips: <%=@client.client.measurement.hips %> </p>
-    <p> Rise: <%=@client.client.measurement.rise %> </p>
-    <p> Neck: <%=@client.client.measurement.neck %> </p>
+<p> Waist: <%=@client.client.measurement.waist %> </p>
+<p> Chest/Bust: <%=@client.client.measurement.chest_bust %> </p>
+<p> Hips: <%=@client.client.measurement.hips %> </p>
+<p> Rise: <%=@client.client.measurement.rise %> </p>
+<p> Neck: <%=@client.client.measurement.neck %> </p>
 
-
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<%byebug%>
+<%= link_to 'Edit', edit_client_path(@user.client) %> |
+<%= link_to 'Back', client_path(@client) %>
