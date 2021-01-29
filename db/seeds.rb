@@ -38,7 +38,7 @@ end
     user = User.create(username: name, password: "abc", name: name, street: street, city: city, state: state, zip_code: zip_code, usable_type: "Tailor", usable_id: tailor.id)
 end
 
-35.times do
+100.times do
     client_id = Faker::Number.within(range: 1..35)
     tailor_id = Faker::Number.within(range: 1..10)
     rating = Faker::Number.within(range: 1..5)

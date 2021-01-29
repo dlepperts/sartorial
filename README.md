@@ -1,26 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Sartorial!
 
-bndkjf
+This runs on Ruby v 2.6.1 and will require the user to: 
+- bundle install
+- rake db:migrate
+- optional: if interested in playing with artificial data, seed the database via:
+    - rake db:seed
 
-Things you may want to cover:
+The purpose of the app is to connect clients and tailors, offering a service for the former to mail articles of clothing and having them altered based on the measurements they enter. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Enjoy!
