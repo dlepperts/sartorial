@@ -10,13 +10,13 @@
 <p> Zip Code: <%=@client.zip_code %> </p>
 <h4> Measurements: </h4>
 
-<%= @client.client.measurement.each do |m| %>
-    <p> Waist: <%=m.waist %> </p>
-    <p> Chest/Bust: <%=m.chest_bust %> </p>
-    <p> Hips: <%=m.hips %> </p>
-    <p> Rise: <%=m.rise %> </p>
-    <p> Neck: <%=m.neck %> </p>
-<% end %>
+
+    <p> Waist: <%=@client.client.measurement.waist %> </p>
+    <p> Chest/Bust: <%=@client.client.measurement.chest_bust %> </p>
+    <p> Hips: <%=@client.client.measurement.hips %> </p>
+    <p> Rise: <%=@client.client.measurement.rise %> </p>
+    <p> Neck: <%=@client.client.measurement.neck %> </p>
+
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

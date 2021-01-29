@@ -1,5 +1,5 @@
-<%= form_with(model: measurement) do |form| %>
-  <% if measurement.errors.any? %>
+
+  <% if @measurement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
 
@@ -11,7 +11,17 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form_for(@measurement) do |f| %>
+    <%= f.label "Waist" %>
+    <%= f.text_field :waist %><br>
+    <%= f.label "Chest/Bust" %>
+    <%= f.text_field :chest_bust %><br>
+    <%= f.label "Hips" %>
+    <%= f.text_field :hips %><br>
+    <%= f.label "Rise" %>
+    <%= f.text_field :rise %><br>
+    <%= f.label "Neck" %>
+    <%= f.text_field :neck %><br><br>
+    <%= f.submit %><br><br>
+
 <% end %>

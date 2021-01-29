@@ -50,6 +50,6 @@ class ClientsController < ApplicationController
     end
     
     def client_params
-      params.require(:client).permit(:name, :sex, :street, :city, :state, :zip_code, measurements_attributes: [ :waist, :chest_bust, :hips, :rise, :neck ])
+      params.require(:client).permit(:name, :street, :city, :state, :zip_code, measurements_attributes: [ :waist, :chest_bust, :hips, :rise, :neck ])
     end
 end

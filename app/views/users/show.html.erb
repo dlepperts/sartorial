@@ -1,8 +1,8 @@
 <h1><%= @user.name %></h1>
 <% if @user.usable_type == "Client" %>
 
-    <% if @user.client.measurements[0].waist == nil %>
-    <h3>*Please fill out <%= link_to "your measurements", new_measurement_path %> before placing an order!</h3>
+    <% if @user.client.measurement.waist == nil %>
+    <h3>*Please fill out <%= link_to "your measurements", edit_measurement_path(@user.client.measurement) %> before placing an order!</h3>
     <% end %>
 <h4><%= link_to "Create an Alteration", new_alteration_path %></h4>
 <% end %>

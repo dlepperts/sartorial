@@ -14,7 +14,6 @@
       <td><%= link_to "Reviews", reviews_path %></td>
       <% if !logged_in? %>
       <td> "My Profile" </td>
-      
       <td><%= button_to "Sign Up", '/signup', method: :get %></td>
       <td><%= button_to "Login", '/login', method: :get %></td>
       <% end %>
