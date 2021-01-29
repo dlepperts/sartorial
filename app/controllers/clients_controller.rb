@@ -6,6 +6,7 @@ class ClientsController < ApplicationController
   end
   
   def show
+    @user = User.all.find(params[:id])
   end
   
   def new

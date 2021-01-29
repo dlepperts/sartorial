@@ -1,9 +1,18 @@
 <h1>Reviews for <%= @tailor.name %></h1>
-<%byebug%>
-<h4>Average: <%= @tailor.display_ratings %> </h4>
+<h4>Average: <%= @tailor.tailor.display_ratings %> </h4>
 <% @reviews.each do |review| %> 
     <p>Rating: <%= review.rating %> / 5</p>
     <p><%= review.review %></p>
     <p>Reviewer: <%= review.client.user.name %></p>
-    -----------------------------
 <% end %>
+
+<% @tailor.tailor.tailor_reviews.each do |review| %>
+    <table>
+    <td><%= review.client.user.name %></td>
+    <td>Rating: <%= review.rating %> / 5</td>
+    </table>
+    <p>Review: <%= review.review %></p>
+<% end %>
+
+<h3><%= link_to "Leave a review!", new_review_path %></h3>
+

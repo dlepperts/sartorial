@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   #user
   resources :users
+  get 'orders', to: 'users#orders'
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   get '/welcome', to: 'users#welcome'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   post '/welcome_client', to: 'users#welcome_client'
   get '/welcome_tailor', to: 'users#welcome_tailor'
   post '/welcome_tailor', to: 'users#welcome_tailor'
+  
 
   #login
   get 'login', to: 'sessions#new'

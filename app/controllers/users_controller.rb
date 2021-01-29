@@ -31,16 +31,26 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(user_personal_params)
-
         redirect_to user_path(@user)
     end
 
     def welcome
         @user = User.find_by(username: session[:username])
-        byebug
         @user.update(user_personal_params)
     end
 
+    def orders
+        @user = User.find_by(username: session[:username])
+        if @user.usable_type == "Client"
+            @user_orders = Alteration.all.select do |alteration|
+                @user.client.id == alteration.client_id
+            end
+        else
+            @user_orders = Alteration.all.select do |alteration|
+                @user.tailor.id == alteration.tailor_id
+            end
+        end
+    end
     
 
     private

@@ -1,19 +1,16 @@
-<span style="cursor: pointer">pointer</span><br>
+<%= form_for @alteration do |f| %>
+    <%= f.label :client_id, "Client Name: #{@user.name}" %>
+    
+    <%= f.hidden_field(:client_id, value: @user.client.id)  %><br>
+    <%= f.label "Select Item(s):" %>
+    <p><%= f.collection_check_boxes(:item_type_id, ItemType.all, :id, :name) %></p>
+    <%= f.label "Select a Tailor:" %>
+    <%= f.collection_select(:tailor_id, @tailors, :usable_id, :name)%><br><br>
+    <%= f.label :date, "Needed By:" %>
+    <%= f.date_field :date %>
+    <%= f.label :comments %>
+    <%= f.text_area :comments %><br><br>
+    <%= f.submit %>
+<% end %><br>
 
-<%= form_with(model: alteration) do |form| %>
-  <% if alteration.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(alteration.errors.count, "error") %> prohibited this alteration from being saved:</h2>
-
-      <ul>
-        <% alteration.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= link_to 'Back', alterations_path %>

@@ -18,15 +18,13 @@ class Tailor < ApplicationRecord
     end
 
     def average_ratings
-        byebug
         total = self.reviews.map do |review|
-            
             review.rating
         end
     end
 
     def display_ratings
-            total = self.reviews.map do |review|
+        total = self.reviews.map do |review|
             review.rating
         end
         if total.count == 0
@@ -37,7 +35,7 @@ class Tailor < ApplicationRecord
         end
     end
 
-    def review 
+    def review_plurality 
         number = self.reviews.count
         if number == 1
             "#{number} Review"
@@ -46,20 +44,26 @@ class Tailor < ApplicationRecord
         end
     end
 
+    def tailor_reviews
+        Review.all.select do |review|
+            review.tailor_id == self.id
+        end
+        
+    end
+
     def self.sort_rating
         Tailor.all.max_by do |tailor|
             tailor.average_ratings
         end
     end
 
-    # def self.featured_tailor
-    #     Tailor.all_tailors.max_by do |tailor|
-    #         byebug
-    #         tailor.reviews.each do |review|
-    #             review.rating
-    #         end
-    #  end
-    # end
+    def self.featured_tailor
+        Tailor.all_tailors.max_by do |tailor|
+            tailor.tailor.reviews.each do |review|
+                review.rating
+            end
+     end
+    end
 
     def self.all_tailors
         @tailors = User.all.select do |user|

@@ -1,11 +1,10 @@
 <h1>Tailors</h1>
       
-    <ul>
-    <% @tailors.each do |tailor| %>
-        <h3><li><%= link_to tailor.name, tailor_path(tailor) %></h3>
-        <p>Average Rating: <%=  %></p>
-        
-    <% end %>
-    </ul>
-
-<%= link_to 'New Tailor', new_tailor_path %>
+<h2>Featured Tailor: <%= link_to Tailor.featured_tailor.name, tailor_path(@featured_tailor)%> </h2>
+<ul>
+<% @tailors.each do |tailor| %>
+    <h3><li><%= link_to tailor.user.name, tailor_path(tailor.user) %></h3>
+    <p>Average Rating: <%= tailor.display_ratings %></p>    
+    <p><%= link_to tailor.review_plurality, tailor_path(tailor.user) %></p>
+<% end %>
+</ul>

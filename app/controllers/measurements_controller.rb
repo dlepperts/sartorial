@@ -10,6 +10,8 @@ class MeasurementsController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(username: session[:username])
+    @client = @user.client
   end
 
   def create
@@ -18,9 +20,10 @@ class MeasurementsController < ApplicationController
   end
 
   def update
-    @measurement = Measurement.find(params[:id])
+    @user = User.find_by(username: session[:username])
+    @measurement = Measurement.find(@user.client.measurement.id)
     if @measurement.update(measurement_params)
-      redirect_to client_path(@measurement.client_id)
+      redirect_to user_path(@user)
     else
       render :edit
     end

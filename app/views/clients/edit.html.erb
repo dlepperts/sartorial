@@ -44,5 +44,5 @@
 <% end %>
 <br><br>
 <%= link_to 'Profile', @client %> |
-<%= link_to 'Back', clients_path %> |
+<%= link_to 'Back', client_path(@client) %> |
 <%= link_to 'Delete Profile', @client, method: :delete, data: { confirm: 'Are you sure?' } %>
