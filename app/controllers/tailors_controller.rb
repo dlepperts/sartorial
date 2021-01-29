@@ -5,6 +5,7 @@ class TailorsController < ApplicationController
   def index
     @tailors = Tailor.all
     @featured_tailor = Tailor.featured_tailor
+    
   end
 
   def show
