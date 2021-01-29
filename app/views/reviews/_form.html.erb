@@ -8,8 +8,7 @@
 <% end %>
 
 <%= form_for(@review) do |f| %>
-  <%= f.label :client %>
-  <%= f.collection_select(:client_id, Client.all, :id, :name) %>
+  <%= f.hidden_field(:client_id, value: @user.client.id) %>
   <%= f.label :tailor %>
   <%= f.collection_select(:tailor_id, Tailor.all, :id, :name) %>
   <%= f.label :rating %>

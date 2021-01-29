@@ -10,6 +10,10 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @client = User.find_by(username: session[:username])
+    @tailors = Tailor.all.map do |tailor|
+      tailor.user
+    end
   end
 
   def edit

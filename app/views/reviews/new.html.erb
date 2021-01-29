@@ -1,5 +1,23 @@
 <h1>Review a Tailor!</h1>
 
-<%= render 'form' %>
+<% if @review.errors.any? %>
+<h2>Uh Oh! There was a mistake in the form:</h2>
+  <ul>
+    <% @review.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<%= link_to 'Back', reviews_path %>
+<%= form_for(@review) do |f| %>
+  
+  <%= f.hidden_field(:client_id, value: @client.id) %>
+  <%= f.label :tailor %>
+  <%= f.collection_select(:tailor_id, @tailors, :id, :name) %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <%= f.label :review %>
+  <%= f.text_area :review %>
+ <br><br>
+  <%= f.submit %>
+<% end %>

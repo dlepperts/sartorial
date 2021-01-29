@@ -3,7 +3,7 @@
 <% @reviews.reverse.each do |review| %>
     <div>
     
-    <h3>Tailor: <%= link_to review.tailor.user.name, user_path(review.tailor.user) %></h3>
+    <h3>Tailor: <%= link_to review.tailor.user.name, tailor_path(review.tailor.user) %></h3>
     
     <h4>Location: <%= review.tailor.user.city %>, <%= review.tailor.user.state %></h4>
     <p>Reviewer: <%= review.client.user.name  %></p>

@@ -24,8 +24,7 @@ class Tailor < ApplicationRecord
     end
 
     def display_ratings
-            
-            total = self.reviews.map do |review|
+        total = self.reviews.map do |review|
             review.rating
         end
         if total.count == 0
@@ -36,13 +35,20 @@ class Tailor < ApplicationRecord
         end
     end
 
-    def review 
+    def review_plurality 
         number = self.reviews.count
         if number == 1
             "#{number} Review"
         else
             "#{number} Reviews"
         end
+    end
+
+    def tailor_reviews
+        Review.all.select do |review|
+            review.tailor_id == self.id
+        end
+        
     end
 
     def self.sort_rating

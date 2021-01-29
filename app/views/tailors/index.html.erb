@@ -5,6 +5,6 @@
 <% @tailors.each do |tailor| %>
     <h3><li><%= link_to tailor.user.name, tailor_path(tailor.user) %></h3>
     <p>Average Rating: <%= tailor.display_ratings %></p>    
-    <p><%= link_to tailor.review, tailor_path(tailor.user) %></p>
+    <p><%= link_to tailor.review_plurality, tailor_path(tailor.user) %></p>
 <% end %>
 </ul>
