@@ -9,7 +9,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <ul class="nav-bar">
      <li><a href="/home">Home</a></li>
-     <li><a href="/about">About</a></li>
+     <li><a href="/about">About Us</a></li>
      <li><%= link_to "Tailors", tailors_path %></li>
      <li><%= link_to "Reviews", reviews_path %></li>
       <% if !logged_in? %>
@@ -20,7 +20,6 @@
       <td> link_to "My Profile", user_path(@user) </td>  
       <td><%= button_to "Log Out", logout_path, method: 'delete' %></td>
         <% end %>
-          
     </ul>
   </head>
 
