@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   get ':tailors/:id/reviews', to: 'tailors#reviews', as: 'tailor_reviews'
   get ':tailors/:id/alterations', to: 'tailors#alterations', as: 'tailor_alterations'
   resources :clients
-  
+  root 'application#hello'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  post '/logout' => 'sessions#destroy'
 end
