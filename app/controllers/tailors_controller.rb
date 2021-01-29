@@ -3,12 +3,11 @@ class TailorsController < ApplicationController
 
   #CRUD
   def index
-    @tailors = Tailor.all
-    @tailor = Tailor.featured_tailor
+    @tailors = Tailor.all_tailors
   end
 
   def show
-    @tailor = Tailor.find(params[:id])
+    @tailor = Tailor.find_tailor(params)
   end
 
   def new
@@ -19,7 +18,6 @@ class TailorsController < ApplicationController
   end
 
   def create
-    
     @tailor = Tailor.new(tailor_params)
     if @tailor.save
       redirect_to tailor_path(@tailor)
@@ -42,14 +40,19 @@ class TailorsController < ApplicationController
 
   #Other Pages
   def reviews
-    @tailor = Tailor.find(params[:id])
+    @tailor = User.find(params[:id])
     @reviews = Review.all.select do |review|
       review.tailor_id == @tailor.id
+    end
+    if @reviews.count == 0 
+      "No Reviews Yet!"
+    else
+      @reviews
     end
   end
 
   def alterations
-    @tailor = Tailor.find(params[:id])
+    @tailor = User.find(params[:id])
     @alterations = Alteration.all.select do |alteration|
       alteration.tailor == @tailor
     end
@@ -57,7 +60,7 @@ class TailorsController < ApplicationController
 
   private
     def set_tailor
-      @tailor = Tailor.find(params[:id])
+      @tailor = User.find(params[:id])
     end
 
     def tailor_params

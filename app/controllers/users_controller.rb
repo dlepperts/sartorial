@@ -12,13 +12,13 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_username_params)
-        if @user.save
+
+        if @user.valid?
+            
+            @user.user_association
+            @user.save
             session[:username] = @user.username
-            if @user.usable_type == "Tailor"
-                redirect_to '/welcome_tailor'
-            else
-                redirect_to '/welcome_client'
-            end
+            redirect_to edit_user_path(@user)
         else
             render 'new'
         end
@@ -31,16 +31,17 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(user_personal_params)
+
         redirect_to user_path(@user)
     end
 
     def welcome
         @user = User.find_by(username: session[:username])
+        byebug
+        @user.update(user_personal_params)
     end
 
-    def welcome_client
-        @user = User.find_by(username: session[:username])
-    end
+    
 
     private
 
@@ -49,7 +50,8 @@ class UsersController < ApplicationController
     end
 
     def user_personal_params
-        params.require(:user).permit(:name, :street, :city, :state, :zip_code, :tailor)
+        params.require(:user).permit(:name, :street, :city, :state, :zip_code)
     end
+
 
 end

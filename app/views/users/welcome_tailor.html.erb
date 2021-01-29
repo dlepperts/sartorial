@@ -1,3 +1,5 @@
+<h1>Set Up Your Tailor Profile!</h1>
+
 <% if @user.errors.any? %>
 <h2>Uh Oh! There was a mistake in the form:</h2>
   <ul>
@@ -10,9 +12,8 @@
 <%= form_for(@user) do |f| %>
   <h3>Personal Information</h3>
   <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :bio %>
-  <%= f.text_area :bio %><br>
+  <%= f.text_field :name %><br>
+
 
   <h3>Address</h3>
   <%= f.label :street %>
