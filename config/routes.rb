@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get ':tailors/:id/alterations', to: 'tailors#alterations', as: 'tailor_alterations'
   resources :clients
   
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 end
