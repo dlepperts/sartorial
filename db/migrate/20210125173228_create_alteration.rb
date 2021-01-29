@@ -7,6 +7,7 @@ class CreateAlteration < ActiveRecord::Migration[6.1]
 
       t.integer :client_id
       t.integer :tailor_id
+      t.string :status
 
       t.timestamps
     end

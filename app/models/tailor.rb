@@ -1,4 +1,5 @@
 class Tailor < ApplicationRecord
+    has_one :user, as: :usable
     has_many :alterations
     has_many :reviews
     has_many :clients, through: :alterations

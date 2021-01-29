@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   get '/welcome', to: 'users#welcome'
-  post '/welcome', to: 'users#edit', as: 'hello'
+  post '/welcome', to: 'users#edit'
+  get '/welcome_client', to: 'users#welcome_client'
+  post '/welcome_client', to: 'users#welcome_client'
+  get '/welcome_tailor', to: 'users#welcome_tailor'
+  post '/welcome_tailor', to: 'users#welcome_tailor'
 
   #login
   get 'login', to: 'sessions#new'
