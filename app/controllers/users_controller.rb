@@ -40,10 +40,15 @@ class UsersController < ApplicationController
     end
 
     def orders
-        
         @user = User.find_by(username: session[:username])
-        @user_orders = Alteration.all.select do |alteration|
-            @user.client.id == alteration.client_id
+        if @user.usable_type == "Client"
+            @user_orders = Alteration.all.select do |alteration|
+                @user.client.id == alteration.client_id
+            end
+        else
+            @user_orders = Alteration.all.select do |alteration|
+                @user.tailor.id == alteration.tailor_id
+            end
         end
     end
     

@@ -3,7 +3,7 @@ class TailorsController < ApplicationController
 
   #CRUD
   def index
-    @tailors = Tailor.all_tailors
+    @tailors = Tailor.all
   end
 
   def show

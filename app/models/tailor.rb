@@ -26,6 +26,7 @@ class Tailor < ApplicationRecord
     end
 
     def display_ratings
+            
             total = self.reviews.map do |review|
             review.rating
         end

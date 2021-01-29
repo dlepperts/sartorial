@@ -1,9 +1,13 @@
 <h1>Tailors</h1>
       
+
     <ul>
     <% @tailors.each do |tailor| %>
-        <h3><li><%= link_to tailor.name, tailor_path(tailor) %></h3>
-        <p>Average Rating: <%=  %></p>
+        
+        <h3><li><%= link_to tailor.user.name, tailor_path(tailor.user) %></h3>
+        <p>Average Rating: <%= tailor.display_ratings %></p>
+        
+        <p><%= link_to tailor.review, tailor_path(tailor.user) %></p>
         
     <% end %>
     </ul>

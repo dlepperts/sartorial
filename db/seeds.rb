@@ -10,11 +10,6 @@ Measurement.destroy_all
 Alteration.destroy_all
 
 
-# Client.create
-# Tailor.create
-# User.create(username: "Evan Fujita", password_digest: "abc", usable_type: "Client", usable_id: 1)
-
-
 #client/user
 35.times do 
     client = Client.create
