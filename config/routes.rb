@@ -25,7 +25,10 @@ Rails.application.routes.draw do
   resources :reviews
   get ':tailors/:id/reviews', to: 'tailors#reviews', as: 'tailor_reviews'
   get ':tailors/:id/alterations', to: 'tailors#alterations', as: 'tailor_alterations'
-  resources :alterations, only:[:new, :create, :update, :show, :edit]
+  
+
+  #alterations
+  resources :alterations
 
   #client
   resources :clients
@@ -36,10 +39,4 @@ Rails.application.routes.draw do
   get 'about', to: 'static#about'
 
 
-
- 
-  # get 'authorized', to: 'static#about'
-  
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
 end

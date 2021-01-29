@@ -5,7 +5,7 @@
     <%= f.label "Select Item(s):" %>
     <p><%= f.collection_check_boxes(:item_type_id, ItemType.all, :id, :name) %></p>
     <%= f.label "Select a Tailor:" %>
-    <%= f.collection_select(:tailor_id, Tailor.all, :usable_id, :name)%><br><br>
+    <%= f.collection_select(:tailor_id, @tailors, :usable_id, :name)%><br><br>
     <%= f.label :date, "Needed By:" %>
     <%= f.date_field :date %>
     <%= f.label :comments %>

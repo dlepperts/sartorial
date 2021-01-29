@@ -6,6 +6,10 @@ class AlterationsController < ApplicationController
     @user = User.find_by(username: session[:username])
   end
 
+  def index
+
+  end
+
   def new
     @alteration = Alteration.new
     @user = User.find_by(username: session[:username])
@@ -14,9 +18,13 @@ class AlterationsController < ApplicationController
 
   def edit
     @alteration = Alteration.find(params[:id])
+    @tailors = Tailor.all.map do |tailor|
+      tailor.user
+    end
   end
   
   def create
+    
     @item_types = ItemType.all
     @alteration = Alteration.new(alteration_params)
     if @alteration.save
@@ -27,6 +35,9 @@ class AlterationsController < ApplicationController
   end
 
   def update
+    @tailors = Tailor.all.map do |tailor|
+      tailor.user
+    end
     @alteration = Alteration.find(params[:id])
     @alteration.update(alteration_params)
     redirect_to alteration_path(@alteration)

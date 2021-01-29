@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Order Confirmation</h1>
-<%byebug%>
+
 <h4> Your Information:</h4>
 <%= @alteration.client.user.name %><br>
 <%= @alteration.client.user.street %><br>
@@ -26,4 +26,5 @@ Neck: <%= @alteration.client.measurement.neck %><p>
 <h3>Thank you for using Tailor Mailer!</h3>
 
 <%= link_to 'Edit', edit_alteration_path(@alteration) %> 
+<%= button_to "Cancel Order", alteration_path(@alteration), method: :delete %> 
 <%= link_to 'My Orders', user_path(@user) %> 
