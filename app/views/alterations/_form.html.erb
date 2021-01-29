@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_for @alteration do |f| %>
     <%= f.label :client_id, "Client Name: #{@user.name}" %>
     
@@ -12,5 +13,13 @@
     <%= f.text_area :comments %><br><br>
     <%= f.submit %>
 <% end %><br>
+=======
+<span style="cursor: pointer">pointer</span><br>
+
+<%= form_with(model: alteration) do |form| %>
+  <% if alteration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alteration.errors.count, "error") %> prohibited this alteration from being saved:</h2>
+>>>>>>> 8aacae424418b6328b510ab2a718ea7a27bda718
 
 <%= link_to 'Back', alterations_path %>
