@@ -4,6 +4,7 @@ class TailorsController < ApplicationController
   #CRUD
   def index
     @tailors = Tailor.all
+    @featured_tailor = Tailor.featured_tailor
   end
 
   def show
@@ -32,10 +33,6 @@ class TailorsController < ApplicationController
 
   def destroy
     @tailor.destroy
-    respond_to do |format|
-      format.html { redirect_to tailors_url, notice: "Tailor was successfully destroyed." }
-      format.json { head :no_content }
-    end
   end
 
   #Other Pages
