@@ -38,4 +38,6 @@ Rails.application.routes.draw do
  
   # get 'authorized', to: 'static#about'
   
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 end

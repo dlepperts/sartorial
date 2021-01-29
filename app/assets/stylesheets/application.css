@@ -13,3 +13,52 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+    background-color: rgb(204, 184, 184);
+  }
+
+  h1 {
+      color: rgb(0, 0, 0);
+      word-spacing: 11px;
+      font-family: Georgia;
+      font-size: 35px
+  }
+
+  h2 {
+      font-family: Georgia;
+      font-size: 25px;
+      color: rgb(54, 54, 54)
+
+  }
+
+  p {
+      color:rgb(0, 0, 0)
+  }
+
+  /* unvisited link */
+  a:link {
+      color: rgb(0, 23, 128);
+
+  }
+  
+/* mouse over link */
+  a:hover {
+
+  }
+
+/* selected link */
+a:active {
+    color: blue;
+  }
+
+/* visited link */
+  a:visited {
+    color: rgb(44, 56, 230);
+    background-color: rgb(255, 255, 255);
+
+  }
+
+  
+
+
