@@ -44,11 +44,9 @@ class AlterationsController < ApplicationController
   end
 
   def destroy
+    @user = User.find_by(username: session[:username])
     @alteration.destroy
-    respond_to do |format|
-      format.html { redirect_to alterations_url, notice: "Alteration was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to user_path(@user)
   end
 
   private
