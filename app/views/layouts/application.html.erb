@@ -7,20 +7,20 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <table>
-      <td><a href="/home">Home</a></td>
-      <td><a href="/about">About</a></td>
-      <td><%= link_to "Tailors", tailors_path %></td>
-      <td><%= link_to "Reviews", reviews_path %></td>
+    <ul class="nav-bar">
+     <li><a href="/home">Home</a></li>
+     <li><a href="/about">About</a></li>
+     <li><%= link_to "Tailors", tailors_path %></li>
+     <li><%= link_to "Reviews", reviews_path %></li>
       <% if !logged_in? %>
-      <td><%= link_to "Sign Up", signup_path %></td>
-      <td><%= button_to "Login", '/login', method: :get %></td>
+     <li><%= link_to "Sign Up", signup_path %></li>
+     <li><%= button_to "Login", '/login', method: :get %></li>
       <% end %>
       <% if logged_in? %>  
-      <td><%= button_to "Log Out", logout_path, method: 'delete' %></td>
+     <li><%= button_to "Log Out", logout_path, method: 'delete' %></li>
         <% end %>
           
-    </table>
+    </ul>
   </head>
 
   <body>
