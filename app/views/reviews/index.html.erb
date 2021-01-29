@@ -1,10 +1,12 @@
 <h1>Reviews</h1>
-  <% @reviews.reverse.each do |review| %>
+
+<% @reviews.reverse.each do |review| %>
     <div>
     
-    <h3>Tailor: <%= link_to review.tailor.name, tailor_path(review.tailor) %></h3>
-    <h4>Location: <%= review.tailor.city %>, <%= review.tailor.state %></h4>
-    <p>Reviewer: <%= review.client.name  %></p>
+    <h3>Tailor: <%= link_to review.tailor.user.name, tailor_path(review.tailor.user) %></h3>
+    
+    <h4>Location: <%= review.tailor.user.city %>, <%= review.tailor.user.state %></h4>
+    <p>Reviewer: <%= review.client.user.name  %></p>
     <p>Rating: <%= review.rating  %> / 5</p>
     <p>Review: <%= review.review  %></p>
     --------------------------------

@@ -1,4 +1,14 @@
-<form method='post'>
-  <input name='username'>
-  <input type='submit' value='login'>
-</form> 
+<h1>Sign in to Sartorial</h1>
+<p>
+<div>
+<%= form_tag '/login' do %>
+   <%= label_tag :username%>
+   <%= text_field_tag :username %>
+
+   <%= label_tag :password%>
+   <%= text_field_tag :password %><p>
+
+   <%= submit_tag "Login"%>
+   
+<%end%>
+</div>

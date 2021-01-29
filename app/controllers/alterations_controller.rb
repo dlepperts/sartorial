@@ -1,53 +1,61 @@
 class AlterationsController < ApplicationController
   before_action :set_alteration, only: %i[ show edit update destroy ]
 
-
-  # GET /alterations/1 or /alterations/1.json
   def show
     @alteration = Alteration.find(params[:id])
+    @user = User.find_by(username: session[:username])
   end
 
-  # GET /alterations/new
+  def index
+
+  end
+
   def new
     @alteration = Alteration.new
+    @user = User.find_by(username: session[:username])
+    @tailors = Tailor.all_tailors
   end
 
-  # GET /alterations/1/edit
   def edit
     @alteration = Alteration.find(params[:id])
+    @tailors = Tailor.all.map do |tailor|
+      tailor.user
+    end
   end
-
-  # POST /alterations or /alterations.json
+  
   def create
+    
+    @item_types = ItemType.all
     @alteration = Alteration.new(alteration_params)
-    @alteration.save
+    if @alteration.save
     redirect_to alteration_path(@alteration)
+    else
+      render :new
+    end
   end
 
-  # PATCH/PUT /alterations/1 or /alterations/1.json
   def update
+    @tailors = Tailor.all.map do |tailor|
+      tailor.user
+    end
     @alteration = Alteration.find(params[:id])
     @alteration.update(alteration_params)
     redirect_to alteration_path(@alteration)
   end
 
-  # DELETE /alterations/1 or /alterations/1.json
   def destroy
+    @user = User.find_by(username: session[:username])
     @alteration.destroy
-    respond_to do |format|
-      format.html { redirect_to alterations_url, notice: "Alteration was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to user_path(@user)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_alteration
       @alteration = Alteration.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def alteration_params
-      params.require(:alteration).permit(:item_type_id, :client_id, :tailor_id)
+      params.require(:alteration).permit(:item_type_id, :client_id, :tailor_id, :date, :comments)
     end
 end

@@ -1,15 +1,16 @@
+<h1>Alter Your Alteration</h1>
 
 <%= form_for @alteration do |f| %>
-    <%= f.label "Item" %>
-    <%= f.collection_select(:item_type_id, ItemType.all, :id, :name) %><p>
+    
+    <%= f.label "Select Item(s):" %>
+    <p><%= f.collection_check_boxes(:item_type_id, ItemType.all, :id, :name) %></p>
+    <%= f.label "Select a Tailor:" %>
+    <%= f.collection_select(:tailor_id, @tailors, :usable_id, :name)%><br><br>
+    <%= f.label :date, "Needed By:" %>
+    <%= f.date_field :date %>
+    <%= f.label :comments %>
+    <%= f.text_area :comments %><br><br>
+    <%= f.submit %>
+<% end %><br>
 
-    <%= f.label "Name of Client" %>
-    <%= f.collection_select(:client_id, Client.all, :id, :name)%><p>
-
-    <%= f.label "Name of Tailor" %>
-    <%= f.collection_select(:tailor_id, Tailor.all, :id, :name)%><p>
-
-<%= render 'form', alteration: @alteration %>
-<% end %>
-
-<%= link_to 'Show', @alteration %> 
+<%= link_to 'Back', alterations_path %>

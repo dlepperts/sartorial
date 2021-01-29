@@ -1,4 +1,5 @@
 class Tailor < ApplicationRecord
+    has_one :user, as: :usable
     has_many :alterations
     has_many :reviews
     has_many :clients, through: :alterations
@@ -23,7 +24,7 @@ class Tailor < ApplicationRecord
     end
 
     def display_ratings
-                total = self.reviews.map do |review|
+        total = self.reviews.map do |review|
             review.rating
         end
         if total.count == 0
@@ -34,13 +35,20 @@ class Tailor < ApplicationRecord
         end
     end
 
-    def review 
+    def review_plurality 
         number = self.reviews.count
         if number == 1
             "#{number} Review"
         else
             "#{number} Reviews"
         end
+    end
+
+    def tailor_reviews
+        Review.all.select do |review|
+            review.tailor_id == self.id
+        end
+        
     end
 
     def self.sort_rating
@@ -50,12 +58,23 @@ class Tailor < ApplicationRecord
     end
 
     def self.featured_tailor
-        Tailor.all.max_by do |tailor|
-            tailor.reviews.each do |review|
+        Tailor.all_tailors.max_by do |tailor|
+            tailor.tailor.reviews.each do |review|
                 review.rating
             end
      end
     end
+
+    def self.all_tailors
+        @tailors = User.all.select do |user|
+            user.usable_type == "Tailor"
+        end
+    end
+
+    def self.find_tailor(params)
+        User.find(params[:id])
+    end
+
 end
 
 

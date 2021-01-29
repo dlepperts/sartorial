@@ -13,3 +13,130 @@
  *= require_tree .
  *= require_self
  */
+
+ /* pointer that hovers over links */
+
+body {
+    background-image: url("background_3.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+ }
+
+ .get-conf-text {
+  color: rgb(255, 255, 255);
+  word-spacing: 8px;
+  font-family: Georgia;
+  font-size: 35px
+ }
+
+ .home-text {
+  margin: 450px auto;
+  width: 800px;
+  text-align: right;
+  font-size: 35px;
+  font-family: "Lucida Handwriting", "Courier New", monospace;    color: rgb(0, 0, 0);
+
+ }
+
+  h1 {
+      color: rgb(0, 0, 0);
+      word-spacing: 8px;
+      font-family: Georgia;
+      font-size: 35px
+  }
+
+
+  .about-us-heading {
+    margin: 450px auto;
+    width: 1550px;
+    text-align: right;
+    font-size: 35px;
+    font-family: "Lucida Handwriting", "Courier New", monospace;    color: rgb(0, 0, 0);
+  }
+
+  h2 {
+      font-family: Georgia;
+      font-size: 25px;
+      color: rgb(54, 54, 54)
+  }
+
+  p {
+      color:rgb(0, 0, 0)
+  }
+
+  /* unvisited link */
+  a:link {
+      color: rgb(0, 47, 255);
+  }
+  
+/* mouse over link */
+  a:hover {
+      color: rgb(255, 255, 255);
+  }
+
+/* selected link */
+a:active {
+    color: rgb(255, 255, 255);
+  }
+
+/* visited link */
+  a:visited {
+    color: rgb(49, 53, 119);
+    background-color: rgba(255, 255, 255, 0.568);
+  }
+
+  /* navigation bar */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: #ddd;
+  }
+  
+  li a.active {
+    color: white;
+    background-color: #4CAF50;
+  }
+
+  input[type=text], select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 6px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 50px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }

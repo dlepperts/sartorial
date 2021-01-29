@@ -16,8 +16,7 @@
     <h4> Personal Details: </h4>
     <%=f.label "Name" %>
     <%=f.text_field :name %>
-    <%=f.label "Sex" %>
-    <%=f.text_field :sex %>
+
     <h4> Address: </h4>
     <%= f.label "Street" %>
     <%= f.text_field :street %>
@@ -38,12 +37,12 @@
       <%= measurement.label "Rise" %>
       <%= measurement.text_field :rise %><br>
       <%= measurement.label "Neck" %>
-      <%= measurement.text_field :neck %><br>
+      <%= measurement.text_field :neck %><br><br>
     <% end %>
     <%= f.submit %>
 
 <% end %>
-
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
-<%= link_to 'Destroy', @client, method: :delete, data: { confirm: 'Are you sure?' } %>
+<br><br>
+<%= link_to 'Profile', @client %> |
+<%= link_to 'Back', client_path(@client) %> |
+<%= link_to 'Delete Profile', @client, method: :delete, data: { confirm: 'Are you sure?' } %>
