@@ -1,6 +1,4 @@
 class AlterationsController < ApplicationController
-  before_action :set_alteration, only: %i[ show edit update destroy ]
-
 
   # GET /alterations/1 or /alterations/1.json
   def show

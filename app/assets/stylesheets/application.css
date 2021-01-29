@@ -16,30 +16,46 @@
 
  /* pointer that hovers over links */
 
-  body {
+body {
     background-image: url("background_3.jpeg");
     background-repeat: no-repeat;
     background-size: cover; 
-  }
+ }
+
+ .home-text {
+  margin: 450px auto;
+  width: 800px;
+  text-align: right;
+  font-size: 35px;
+  font-family: "Lucida Handwriting", "Courier New", monospace;    color: rgb(0, 0, 0);
+
+ }
 
   h1 {
       color: rgb(0, 0, 0);
-      word-spacing: 11px;
+      word-spacing: 8px;
       font-family: Georgia;
       font-size: 35px
+  }
+
+
+  .about-us-heading {
+    margin: 450px auto;
+    width: 1550px;
+    text-align: right;
+    font-size: 35px;
+    font-family: "Lucida Handwriting", "Courier New", monospace;    color: rgb(0, 0, 0);
   }
 
   h2 {
       font-family: Georgia;
       font-size: 25px;
       color: rgb(54, 54, 54)
-
   }
 
   p {
       color:rgb(0, 0, 0)
   }
-
 
   /* unvisited link */
   a:link {
@@ -94,7 +110,7 @@ a:active {
   }
 
   input[type=text], select {
-    width: 35%;
+    width: 20%;
     padding: 12px 20px;
     margin: 6px 0;
     display: inline-block;
@@ -107,7 +123,7 @@ a:active {
     width: 20%;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 80px;
+    padding: 10px 50px;
     margin: 8px 0;
     border: none;
     border-radius: 0px;
@@ -117,9 +133,3 @@ a:active {
   input[type=submit]:hover {
     background-color: #45a049;
   }
-  
-  div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-  }
-
