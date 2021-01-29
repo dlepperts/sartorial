@@ -13,7 +13,9 @@
       <td><%= link_to "Tailors", tailors_path %></td>
       <td><%= link_to "Reviews", reviews_path %></td>
       <% if !logged_in? %>
-      <td><%= link_to "Sign Up", signup_path %></td>
+      <td> "My Profile" </td>
+      
+      <td><%= button_to "Sign Up", '/signup', method: :get %></td>
       <td><%= button_to "Login", '/login', method: :get %></td>
       <% end %>
       <% if logged_in? %>  

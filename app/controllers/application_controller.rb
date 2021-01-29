@@ -16,5 +16,14 @@ class ApplicationController < ActionController::Base
         redirect_to '/welcome' unless logged_in?
     end
 
+    def is_tailor?
+        self.usable_type == tailor
+    end
+
+    def all_tailors
+        @tailors = User.all.select do |user|
+            user.usable_type == "Tailor"
+        end
+    end
 
 end
