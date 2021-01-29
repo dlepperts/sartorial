@@ -15,15 +15,20 @@ ActiveRecord::Schema.define(version: 2021_01_28_180934) do
   create_table "alterations", force: :cascade do |t|
     t.integer "item_type_id"
     t.text "comments"
-    t.datetime "date"
+    t.string "date"
     t.integer "client_id"
     t.integer "tailor_id"
-    t.string "status", default: "Processing"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "sex"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -55,7 +60,12 @@ ActiveRecord::Schema.define(version: 2021_01_28_180934) do
   end
 
   create_table "tailors", force: :cascade do |t|
+    t.string "name"
     t.text "bio"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
