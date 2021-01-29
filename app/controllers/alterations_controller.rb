@@ -7,7 +7,6 @@ class AlterationsController < ApplicationController
   end
 
   def new
-    byebug
     @alteration = Alteration.new
     @user = User.find_by(username: session[:username])
     @tailors = Tailor.all_tailors
